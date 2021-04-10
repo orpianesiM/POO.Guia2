@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9341a0c4-7df5-4ce6-b0fd-a0a6df820e8d" name="Default Changelist" comment="" />
+    <list default="true" id="9341a0c4-7df5-4ce6-b0fd-a0a6df820e8d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../POO.Guia2.Libro/.idea/POO.Guia2.Libro.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../POO.Guia2.Libro/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../POO.Guia2.Libro/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../POO.Guia2.Libro/.idea/workspace.xml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +37,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../POO.Guia2.Libro" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
