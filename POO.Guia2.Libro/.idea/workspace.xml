@@ -18,7 +18,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1qwnMmsHEeQMsfUVRMIpLGCNG45" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -32,7 +32,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../POO.Guia2.Libro" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
@@ -66,8 +66,8 @@
       <workItem from="1617999477731" duration="1507000" />
       <workItem from="1618067052271" duration="3195000" />
       <workItem from="1618070376213" duration="22000" />
-      <workItem from="1618070477372" duration="1466000" />
-      <workItem from="1618072245152" duration="410000" />
+      <workItem from="1618070477372" duration="1741000" />
+      <workItem from="1618072282267" duration="373000" />
     </task>
     <servers />
   </component>
