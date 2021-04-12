@@ -1,30 +1,82 @@
 package com.company;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+
 public class Factura {
+
     private String id;
     private Cliente cliente;
     private String fecha; //Analizar si debiera ser un arreglo de Strings con una celda para fecha y otra la hora
-    private double total;
+    private double total = 0;
 
     //Constructor
+    public Factura()
+    {
+        this.id = asignarId();
+        asignarFechaYHora();
+    }
+
+    public Factura(Cliente cliente)
+    {
+        this.id = asignarId();
+        asignarFechaYHora();
+        this.cliente = cliente;
+    }
 
     //Setters & Getters
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getFecha() {
+        return this.fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
 
     //Otros metodos
 
     public String asignarId()
     {
-        //generar
+        return "";//generar
     }
 
     public void asignarFechaYHora()
     {
-
+        LocalDateTime dateAndTime = LocalDateTime.now();
+        this.fecha = dateAndTime.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG));
+        System.out.println(dateAndTime.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG)));
     }
 
     public double calcularTotal(float descuento)
     {
-        
+        return 0.;
     }
 }
 

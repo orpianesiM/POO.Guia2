@@ -50,6 +50,6 @@ public class Cliente {
 
     public String asignarId()
     {
-        //generar
+        return "";//generar
     }
 }
