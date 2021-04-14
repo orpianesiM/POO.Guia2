@@ -6,7 +6,9 @@ public class Main {
 
         Factura factura = new Factura();
 
-        System.out.println(factura.getFecha());
+       // System.out.println(factura.getFecha());
+
+        System.out.println(factura.getFecha().toString());
 
     }
 }

@@ -8,14 +8,16 @@ public class Factura {
 
     private String id;
     private Cliente cliente;
-    private String fecha; //Analizar si debiera ser un arreglo de Strings con una celda para fecha y otra la hora
+    //private String fecha; //Analizar si debiera ser un arreglo de Strings con una celda para fecha y otra la hora
+    private LocalDateTime fecha;
     private double total = 0;
 
     //Constructor
     public Factura()
     {
         this.id = asignarId();
-        asignarFechaYHora();
+        //asignarFechaYHora();
+        this.fecha = LocalDateTime.now();
     }
 
     public Factura(Cliente cliente)
@@ -43,13 +45,11 @@ public class Factura {
         this.cliente = cliente;
     }
 
-    public String getFecha() {
+    public LocalDateTime getFecha() {
         return this.fecha;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
+
 
     public double getTotal() {
         return total;
@@ -69,9 +69,13 @@ public class Factura {
 
     public void asignarFechaYHora()
     {
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss") ;
         LocalDateTime dateAndTime = LocalDateTime.now();
-        this.fecha = dateAndTime.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG));
-        System.out.println(dateAndTime.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG)));
+
+        // System.out.println(dateAndTime);
+        //this.fecha = dateAndTime.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG));
+        //this.fecha = dateAndTime.format(formato);
+        //System.out.println();
     }
 
     public double calcularTotal(float descuento)
