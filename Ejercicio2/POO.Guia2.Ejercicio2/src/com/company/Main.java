@@ -1,24 +1,27 @@
 package com.company;
 
+import java.util.Locale;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        Factura factura = new Factura();
+        Cliente cliente = new Cliente("Carlos", "carlos@gmail.com", 0.10f);
 
-       // System.out.println(factura.getFecha());
+        Factura factura = new Factura(cliente, 5);
 
-        System.out.println(factura.getFecha());
-        System.out.println("\u0031");
+        ItemVenta item1 = new ItemVenta("Coquita", "Latita de coca", 2,  40f );
+        ItemVenta item2 = new ItemVenta("Arroz", "Lorem Ipsum", 2, 80f );
+        ItemVenta item3 = new ItemVenta("Fideos", "Lorem Ipsum", 1, 90f );
+        ItemVenta item4 = new ItemVenta("Agua", "Lorem Ipsum", 3, 100f );
+        ItemVenta item5 = new ItemVenta("Galletitas", "Lorem Ipsum", 1, 110f );
+
+        //factura.setTotal(120d);
 
 
+
+        System.out.println(cliente);
+        System.out.println(factura);
     }
 
-    public void givenUsingPlainJava_whenGeneratingRandomStringUnbounded_thenCorrect() {
-        byte[] array = new byte[7]; // length is bounded by 7
-        new Random().nextBytes(array);
-        String generatedString = new String(array, Charset.forName("UTF-8"));
-
-        System.out.println(generatedString);
-    }
 }

@@ -2,28 +2,28 @@ package com.company;
 
 import java.util.Random;
 
-public class Cliente implements Identificador {
+public class ItemVenta implements Identificador {
+
     private String id;
     private String nombre;
-    private String email;
-    private float descuento = 0;
+    private String descripcion;
+    private int cant = 0;
+    private float precio = 0f;
 
-    //Constructor
-    public Cliente()
-    {
-        this.id = asignarId(4);
-    }
+    //Constructores
 
+    public ItemVenta(){}
 
-    public Cliente(String nombre, String email, float descuento)
-    {
+    public ItemVenta(String nombre, String descripcion, int cant, float precio) {
+        this.id = asignarId(5);
         this.nombre = nombre;
-        this.email = email;
-        this.descuento = descuento;
-        this.id = asignarId(4);
+        this.descripcion = descripcion;
+        this.cant = cant;
+        this.precio = precio;
     }
 
-    //Setters & Getters
+
+    // Setters y Getters
 
     public String getId() {
         return id;
@@ -41,24 +41,31 @@ public class Cliente implements Identificador {
         this.nombre = nombre;
     }
 
-    public String getEmail() {
-        return email;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public float getDescuento() {
-        return descuento;
+    public float getPrecio() {
+        return precio;
     }
 
-    public void setDescuento(float descuento) {
-        this.descuento = descuento;
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public int getCant() {
+        return cant;
+    }
+
+    public void setCant(int cant) {
+        this.cant = cant;
     }
 
     //Otros metodos
-
 
     @Override
     public String asignarId(int size) {
@@ -75,11 +82,5 @@ public class Cliente implements Identificador {
             token[i] = simbolos[random.nextInt(simbolos.length)];
 
         return new String(token);
-    }
-
-    @Override
-    public String toString()
-    {
-        return "Cliente[id=" + this.id + " - nombre=" + this.nombre + " - email=" + this.email + " - descuento=" + this.descuento + "]";
     }
 }
