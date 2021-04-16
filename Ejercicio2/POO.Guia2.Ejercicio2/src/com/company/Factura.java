@@ -3,12 +3,13 @@ package com.company;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.Random;
 
 public class Factura {
 
     private String id;
     private Cliente cliente;
-    //private String fecha; //Analizar si debiera ser un arreglo de Strings con una celda para fecha y otra la hora
+    //private String fecha; No uso mas esta variable, uso directamente la instancia LacalDateTime
     private LocalDateTime fecha;
     private double total = 0;
 
@@ -23,7 +24,7 @@ public class Factura {
     public Factura(Cliente cliente)
     {
         this.id = asignarId();
-        asignarFechaYHora();
+        //asignarFechaYHora();
         this.cliente = cliente;
     }
 
@@ -49,7 +50,9 @@ public class Factura {
         return this.fecha;
     }
 
-
+    public void setFecha() {
+        this.fecha = LocalDateTime.now();
+    }
 
     public double getTotal() {
         return total;
@@ -64,23 +67,26 @@ public class Factura {
 
     public String asignarId()
     {
+        Random rand = new Random()
         return "";//generar
     }
 
-    public void asignarFechaYHora()
+    /*public void asignarFechaYHora()
     {
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss") ;
-        LocalDateTime dateAndTime = LocalDateTime.now();
-
-        // System.out.println(dateAndTime);
-        //this.fecha = dateAndTime.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG));
+        //DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss") ;
+        //LocalDateTime dateAndTime = LocalDateTime.now();
+        //this.fecha = dateAndTime.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG)); //Este no funciona, hay un error
         //this.fecha = dateAndTime.format(formato);
-        //System.out.println();
-    }
+    }*/
 
     public double calcularTotal(float descuento)
     {
         return 0.;
     }
+
+
+
+
+
 }
 
