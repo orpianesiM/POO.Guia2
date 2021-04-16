@@ -4,17 +4,14 @@ public class Libro {
     private String titulo;
     private Float precio;
     private Integer stock;
-    private Autor autor;
+    private Autor[] autores;
 
-    public Libro() {
+    public Libro(Autor[] autores) {
+        this.autores = autores;
     }
 
-    public Libro(Autor autor) {
-        this.autor = autor;
-    }
-
-    public Libro(Autor autor, String titulo, Float precio, Integer stock) {
-        this(autor);
+    public Libro(Autor[] autores, String titulo, Float precio, Integer stock) {
+        this(autores);
         this.titulo = titulo;
         this.precio = precio;
         this.stock = stock;
@@ -44,12 +41,12 @@ public class Libro {
         this.stock = stock;
     }
 
-    public Autor getAutor() {
-        return autor;
+    public Autor[] getAutor() {
+        return autores;
     }
 
-    public void setAutor(Autor autor) {
-        this.autor = autor;
+    public void setAutor(Autor[] autores) {
+      this.autores = autores;
     }
 
     @Override
@@ -58,18 +55,30 @@ public class Libro {
                 "titulo='" + titulo + '\'' +
                 ", precio=" + precio +
                 ", stock=" + stock +
-                ", autor=" + autor +
+                ", autor=" + autores +
                 '}';
     }
 
-    public String verDetalle(){
+   /* public String verDetalle(){
         return "El libro, "+ this.titulo +
-                " de "+autor.getNombre() +
+                " de " + autor.getNombre() +
                 ". Se vende a $" +this.precio+
                 " pesos.";
+    }*/
+    public Integer aumentarStock(Integer nuevoStock){
+       return this.stock+=nuevoStock;
+   }
+
+    public String verDetalle(){
+      String detalle = "El libro " + this.titulo + " es de: \n" ;
+
+       for (Autor autores : this.autores){
+           detalle += autores; //Llama directamente al metodo toString?
+           detalle += "\n";
+        }
+        detalle += "Se vende a $"+this.precio;
+        return detalle;
     }
 
-    public Integer aumentarStock(Integer nuevoStock){
-        return this.stock+=nuevoStock;
-    }
+
 }

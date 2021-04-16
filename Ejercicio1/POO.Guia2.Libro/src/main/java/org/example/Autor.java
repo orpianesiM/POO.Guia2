@@ -51,6 +51,10 @@ public class Autor {
 
     @Override
     public String toString() {
+        return "Autor: " + nombre + ' ' + apellido;
+    }
+
+    public String verDetalleAutor() {
         return "Autor{" +
                 "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
