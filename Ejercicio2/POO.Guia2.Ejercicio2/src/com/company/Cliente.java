@@ -60,7 +60,7 @@ public class Cliente implements Identificador {
     //Otros metodos
 
 
-    @Override
+   /* @Override
     public String asignarId(int size) {
         String mayusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String minusculas = mayusculas.toLowerCase();
@@ -75,11 +75,12 @@ public class Cliente implements Identificador {
             token[i] = simbolos[random.nextInt(simbolos.length)];
 
         return new String(token);
-    }
+    }*/
 
     @Override
     public String toString()
     {
-        return "Cliente[id=" + this.id + " - nombre=" + this.nombre + " - email=" + this.email + " - descuento=" + this.descuento + "]";
+        return "Cliente[id=" + this.id + " - nombre=" + this.nombre + " - email=" + this.email +
+                " - descuento=" + this.descuento + "]";
     }
 }

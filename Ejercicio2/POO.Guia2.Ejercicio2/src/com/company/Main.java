@@ -1,14 +1,12 @@
 package com.company;
 
-import java.util.Locale;
-
 public class Main {
 
     public static void main(String[] args) {
 
         Cliente cliente = new Cliente("Carlos", "carlos@gmail.com", 0.10f);
 
-        Factura factura = new Factura(cliente, 5);
+        Factura factura = new Factura(cliente);
 
         ItemVenta item1 = new ItemVenta("Coquita", "Latita de coca", 2,  40f );
         ItemVenta item2 = new ItemVenta("Arroz", "Lorem Ipsum", 2, 80f );
@@ -16,9 +14,11 @@ public class Main {
         ItemVenta item4 = new ItemVenta("Agua", "Lorem Ipsum", 3, 100f );
         ItemVenta item5 = new ItemVenta("Galletitas", "Lorem Ipsum", 1, 110f );
 
-        //factura.setTotal(120d);
-
-
+        factura.getItems().add(item1);
+        factura.getItems().add(item2);
+        factura.getItems().add(item3);
+        factura.getItems().add(item4);
+        factura.getItems().add(item5);
 
         System.out.println(cliente);
         System.out.println(factura);

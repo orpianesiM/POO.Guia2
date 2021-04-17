@@ -3,43 +3,46 @@ package com.company;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Factura implements Identificador {
 
     private String id;
     private Cliente cliente;
-    //private String fecha; No uso mas esta variable, uso directamente la instancia LacalDateTime
+    //private String fecha; No uso mas esta variable, uso directamente la instancia LacalDateTime con su toString
     private LocalDateTime fecha;
-    private double total = 0;
 
-    private int cantItems;
+    /*private int cantItems;
     private ItemVenta[] items = new ItemVenta[cantItems];
-    private int aux=0;
+    private int aux=0;*/
 
+    private ArrayList<ItemVenta> items = new ArrayList<ItemVenta>();
 
 
     //Constructor
+
     public Factura()
     {
         this.id = asignarId(6);
-        asignarFechaYHora();
+        this.fecha = LocalDateTime.now();
     }
 
     public Factura(Cliente cliente)
     {
         this.id = asignarId(6);
-        asignarFechaYHora();
+        this.fecha = LocalDateTime.now();
         this.cliente = cliente;
     }
 
-    public Factura(Cliente cliente, int cantItems)
+    /*public Factura(Cliente cliente, int cantItems)
     {
         this(cliente);
         this.cantItems = cantItems;
-    }
+    }*/
 
-    //Setters & Getters
+
+    // Setters & Getters
 
     public String getId() {
         return id;
@@ -61,40 +64,14 @@ public class Factura implements Identificador {
         return this.fecha;
     }
 
-    public void setFecha() {this.fecha = LocalDateTime.now(); }
+    public void setFecha(LocalDateTime dateTime) {this.fecha = dateTime; }
 
-    public double getTotal() {
-        return this.total;
-    }
-
-    public void setTotal(double total) {
-
-        for (ItemVenta item:
-             items) {
-            this.total += (item.getPrecio()+item.getCant());
-        }
-
-    }
-
-    public int getCantItems() {
-        return cantItems;
-    }
-
-    public void setCantItems(int cantItems) {
-        this.cantItems = cantItems;
-    }
-
-    public void setItems(ItemVenta item) {
-        this.items[aux] = item;
-        this.aux +=1 ;
-    }
-
-    public ItemVenta[] getItems() {
+    public ArrayList<ItemVenta> getItems() {
         return items;
     }
 
-    public ItemVenta getItem(int pos) {
-        return items[pos];
+    public void setItems(ArrayList<ItemVenta> items) {
+        this.items = items;
     }
 
     //Otros metodos
@@ -105,7 +82,7 @@ public class Factura implements Identificador {
         return fecha.format(formato);
     }
 
-    public void asignarFechaYHora()
+    /*public void asignarFechaYHora()
     {
         this.fecha = LocalDateTime.now();
 
@@ -113,15 +90,25 @@ public class Factura implements Identificador {
         //LocalDateTime dateAndTime = LocalDateTime.now();
         //this.fecha = dateAndTime.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG)); //Este no funciona, hay un error
         //this.fecha = dateAndTime.format(formato);
-    }
+    }*/
 
-    public double calcularTotal(float descuento)
+    public double calcularTotal()
     {
-        return this.getTotal() - this.getTotal()*descuento;
+        double total = 0;
+        for (ItemVenta item: this.items) {
+            total += (item.getCant() * item.getPrecio()) ;
+        }
+
+        return total;
+    }
+
+    public double calcularTotalConDesc(float descuento)
+    {
+        return this.calcularTotal() * (1-descuento);
     }
 
 
-    @Override
+    /*@Override
     public String asignarId(int size) {
         String mayusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String minusculas = mayusculas.toLowerCase();
@@ -136,12 +123,13 @@ public class Factura implements Identificador {
             token[i] = simbolos[random.nextInt(simbolos.length)];
 
         return new String(token);
-    }
+    }*/
 
     @Override
     public String toString() {
         return "Factura[id=" + this.id + " - fecha=" + this.fecha.toLocalDate()  + " - hora=" + this.fecha.toLocalTime()  +
-                " - monto=" + this.getTotal() + " - montoDesc= " + String.format("%.2f", this.calcularTotal(cliente.getDescuento()))  + "\n" + cliente.toString() + " ]";
+                " - monto=" + this.calcularTotal() + " - montoDesc= " +
+                String.format("%.2f", this.calcularTotalConDesc(this.cliente.getDescuento()))  + "\n" + cliente.toString() + " ]";
     }
 }
 
