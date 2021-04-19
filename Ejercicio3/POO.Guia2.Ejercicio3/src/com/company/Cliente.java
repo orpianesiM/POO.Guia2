@@ -1,9 +1,10 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Cliente {
-    private String id;
+    private UUID id;
     private String nombre;
     private char genero;
     private ArrayList<Cuenta> cuentas;
@@ -11,25 +12,26 @@ public class Cliente {
     //constructores
 
     public Cliente(){
-        this.id = generarId(); // Investigar UUID class de java
+        this.id = UUID.randomUUID(); // Investigar UUID class de java
         this.cuentas = new ArrayList<>();
     }
 
     public Cliente(String nombre, char genero)
     {
-        this.id = generarId();
+        this.id = UUID.randomUUID();
         this.nombre = nombre;
         this.genero = genero;
+        this.cuentas = new ArrayList<>();
     }
 
     //Setters & Getters
 
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -49,5 +51,31 @@ public class Cliente {
         this.genero = genero;
     }
 
+    public ArrayList<Cuenta> getCuentas() {
+        return cuentas;
+    }
+
+    public void setCuentas(ArrayList<Cuenta> cuentas) {
+        this.cuentas = cuentas;
+    }
+
     // otros metodos
+
+    public String datosDeCuentas()
+    {
+        String datosCuentas = new String();
+        int num = 0;
+
+        for (Cuenta cuenta: cuentas) {
+            num += 1;
+            datosCuentas +=  "Cuenta " + num + ": Id " + cuenta.getId() + "\n";
+        }
+
+        return datosCuentas;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente Id= " + this.id + "\nNombre= " + this.nombre + " - Genero=" + this.genero + "\n" + datosDeCuentas();
+    }
 }
