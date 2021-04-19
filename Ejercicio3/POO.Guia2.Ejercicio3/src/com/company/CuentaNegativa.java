@@ -17,7 +17,11 @@ public class CuentaNegativa extends Cuenta{
     public void extraer(double monto)
     {
         if( this.getBalance() - monto >= -2000)
+        {
             this.setBalance(this.getBalance() - monto);
+            super.cargaOperacion("retiró", monto);
+        }
+
         else
             operacionNegada();
     }

@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -30,6 +32,17 @@ public class Main {
         System.out.println(cliente.getCuentas().get(1));
         cuenta2.extraer(1960);
         System.out.println(cliente.getCuentas().get(1));
+        cuenta2.depositar(2000);
+        cuenta2.extraer(520);
+        cuenta2.depositar(1200);
+        cuenta2.depositar(1000);
+        cuenta2.extraer(500);
+        cuenta2.depositar(200);
+        cuenta2.depositar(1812);
+        cuenta2.extraer(10);
+        cuenta2.depositar(1200);
+
+        System.out.println("\n" + Arrays.toString(cliente.getCuentas().get(1).getOperaciones()));
 
     }
 }
