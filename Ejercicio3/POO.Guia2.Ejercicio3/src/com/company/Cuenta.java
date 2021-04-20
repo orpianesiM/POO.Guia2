@@ -96,12 +96,5 @@ public class Cuenta {
         operaciones[this.contador] = op;
         this.contador += 1;
     }
-/*
-    private void cargarArrayOperaciones(String op)
-    {
-
-
-        operaciones[this.contador] = op;
-    }*/
 
 }
